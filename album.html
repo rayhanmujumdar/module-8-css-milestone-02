@@ -14,7 +14,6 @@
         .photo-frame{
             width: 300px;
             height: 200px;
-            border: 2px solid gold;
             border-radius: 10px;
             position: relative;
             overflow: hidden;
@@ -23,8 +22,9 @@
         .photo-frame:hover .photo-details{
             display: block;
             color: white;
-            background-color: rgba(241, 206, 5,0.4);
+            background-color: rgba(241, 206, 5,0.3);
             width: 290px;
+            overflow: hidden;
             border-radius: 10px;
             transition:transform .7s, width .5s ease-in,height .5s ease-in;
             padding: 5px;
@@ -34,6 +34,21 @@
         .photo img{
             width: 100%;
             border-radius: 10px;
+            transform-origin: center;
+            transition: transform 0.5s ease-in-out 0.1s;
+        }
+        @keyframes wheel{
+            100%{
+                transform: rotate(-360deg)
+            }
+        }
+        .photo-frame:hover .photo img{
+            width: 100%;
+            border-radius: 10px;
+            transform-origin: 50% 50%;
+            transition: transform 0.7s ease-in-out 0.1s;
+            transform: rotate(360deg) scale(1.7);
+            /* animation: wheel .5s  infinite ; */
         }
         .photo-details{
             transition: transform .7s, width .5s ease-in,height .5s ease-in;
